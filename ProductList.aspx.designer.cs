@@ -24,6 +24,15 @@ namespace naturefriends
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// hlAddProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hlAddProduct;
+
+        /// <summary>
         /// gridProducts control.
         /// </summary>
         /// <remarks>

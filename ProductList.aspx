@@ -3,53 +3,47 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Product List</title>
-    <style>
-        .table-container {
-            max-width: 800px;
-            margin: 30px auto;
-            font-family: Arial;
-        }
-        h2 {
-            text-align: center;
-        }
-        .action-buttons a {
-            margin: 0 5px;
-        }
-    </style>
+    <title>Naturefriends Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="table-container">
-            <h2>Product List</h2>
+        <div class="container mt-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Naturefriends Product Dashboard</h2>
+                <asp:HyperLink ID="hlAddProduct" runat="server" CssClass="btn btn-primary" NavigateUrl="AddProduct.aspx">
+                    Add Product
+                </asp:HyperLink>
+            </div>
 
-            <asp:GridView ID="gridProducts" runat="server" AutoGenerateColumns="False" 
+            <asp:GridView ID="gridProducts" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"
                 DataKeyNames="productid" OnRowDeleting="gridProducts_RowDeleting">
                 <Columns>
-                    <asp:BoundField DataField="productid" HeaderText="ID" ReadOnly="True" />
-                    <asp:BoundField DataField="name" HeaderText="Product Name" />
-                    <asp:BoundField DataField="description" HeaderText="Description" />
+                    <asp:BoundField DataField="productid" HeaderText="ID" ReadOnly="True" ItemStyle-Width="5%" />
+                    <asp:BoundField DataField="name" HeaderText="Product Name" ItemStyle-Width="40%" />
+                    <asp:BoundField DataField="description" HeaderText="Description" ItemStyle-Width="40%" />
 
-                    <asp:TemplateField HeaderText="Actions">
+                    <asp:TemplateField HeaderText="Actions" ItemStyle-Width="15%">
                         <ItemTemplate>
-                            <div class="action-buttons">
-                                <asp:HyperLink ID="lnkEdit" runat="server" 
-                                    NavigateUrl='<%# "EditProduct.aspx?id=" + Eval("productid") %>' 
-                                    Text="Edit" />
-                                |
-                                <asp:LinkButton ID="lnkDelete" runat="server" 
-                                    Text="Delete" CommandName="Delete" 
-                                    CommandArgument='<%# Eval("productid") %>' 
-                                    OnClientClick="return confirm('Are you sure you want to delete this product?');" />
-                            </div>
+                            <asp:HyperLink ID="lnkEdit" runat="server" 
+                                NavigateUrl='<%# "EditProduct.aspx?id=" + Eval("productid") %>' CssClass="btn btn-sm btn-warning me-2">
+                                Edit
+                            </asp:HyperLink>
+
+                            <asp:LinkButton ID="lnkDelete" runat="server" 
+                                Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("productid") %>' CssClass="btn btn-sm btn-danger"
+                                OnClientClick="return confirm('Are you sure you want to delete this product?');" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
 
-            <br />
-            <asp:Label ID="lblMessage" runat="server" ForeColor="Green" />
+            <asp:Label ID="lblMessage" runat="server" ForeColor="Green" CssClass="mt-3 d-block" />
         </div>
+
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </form>
 </body>
 </html>
