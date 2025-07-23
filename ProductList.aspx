@@ -6,10 +6,49 @@
     <title>Naturefriends Dashboard</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .stock-card {
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+        .stock-card:hover {
+            box-shadow: 0 0 15px rgba(0,123,255,.5);
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container mt-5">
+        <div class="container mt-4">
+
+            <!-- Stock Summary Cards -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card stock-card text-white bg-primary" onclick="location.href='manageCutting.aspx'">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Cutting Stock</h5>
+                            <p class="card-text fs-2"><asp:Label ID="lblTotalCuttingStock" runat="server" Text="0"></asp:Label></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card stock-card text-white bg-success" onclick="location.href='manageSkin.aspx'">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Skin Stock</h5>
+                            <p class="card-text fs-2"><asp:Label ID="lblTotalSkinStock" runat="server" Text="0"></asp:Label></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card stock-card text-white bg-warning" onclick="location.href='manageFinishing.aspx'">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Finishing Stock</h5>
+                            <p class="card-text fs-2"><asp:Label ID="lblTotalFinishingStock" runat="server" Text="0"></asp:Label></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard header and Add Product button -->
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h2>Naturefriends Product Dashboard</h2>
                 <asp:HyperLink ID="hlAddProduct" runat="server" CssClass="btn btn-primary" NavigateUrl="AddProduct.aspx">
@@ -17,6 +56,7 @@
                 </asp:HyperLink>
             </div>
 
+            <!-- Product Grid -->
             <asp:GridView ID="gridProducts" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-bordered"
                 DataKeyNames="productid" OnRowDeleting="gridProducts_RowDeleting">
                 <Columns>
