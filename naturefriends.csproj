@@ -170,6 +170,9 @@
     <Content Include="EditProduct.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="manageCutting.aspx" />
+    <Content Include="manageFinishing.aspx" />
+    <Content Include="manageSkin.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -272,6 +275,27 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="manageCutting.aspx.cs">
+      <DependentUpon>manageCutting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageCutting.aspx.designer.cs">
+      <DependentUpon>manageCutting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manageFinishing.aspx.cs">
+      <DependentUpon>manageFinishing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageFinishing.aspx.designer.cs">
+      <DependentUpon>manageFinishing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manageSkin.aspx.cs">
+      <DependentUpon>manageSkin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageSkin.aspx.designer.cs">
+      <DependentUpon>manageSkin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductList.aspx.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
