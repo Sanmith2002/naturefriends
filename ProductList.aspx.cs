@@ -22,7 +22,11 @@ namespace naturefriends
             using (var conn = new NpgsqlConnection(connStr))
             {
                 conn.Open();
-                string sql = "SELECT productid, name, description FROM products ORDER BY productid";
+                string sql = @"
+                    SELECT productid, name, description, cutting_stock, skin_stock, finishing_stock,
+                           manufacturing_cost, selling_price
+                    FROM products
+                    ORDER BY productid";
                 using (var cmd = new NpgsqlCommand(sql, conn))
                 using (var reader = cmd.ExecuteReader())
                 {

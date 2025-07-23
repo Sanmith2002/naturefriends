@@ -21,21 +21,33 @@
                 DataKeyNames="productid" OnRowDeleting="gridProducts_RowDeleting">
                 <Columns>
                     <asp:BoundField DataField="productid" HeaderText="ID" ReadOnly="True" ItemStyle-Width="5%" />
-                    <asp:BoundField DataField="name" HeaderText="Product Name" ItemStyle-Width="40%" />
-                    <asp:BoundField DataField="description" HeaderText="Description" ItemStyle-Width="40%" />
+                    <asp:BoundField DataField="name" HeaderText="Product Name" ItemStyle-Width="20%" />
+                    <asp:BoundField DataField="description" HeaderText="Description" ItemStyle-Width="25%" />
 
-                    <asp:TemplateField HeaderText="Actions" ItemStyle-Width="15%">
+                    <asp:BoundField DataField="cutting_stock" HeaderText="Cutting Stock" ItemStyle-Width="7%" />
+                    <asp:BoundField DataField="skin_stock" HeaderText="Skin Stock" ItemStyle-Width="7%" />
+                    <asp:BoundField DataField="finishing_stock" HeaderText="Finishing Stock" ItemStyle-Width="7%" />
+
+                    <asp:BoundField DataField="manufacturing_cost" HeaderText="Manufacturing Cost" DataFormatString="{0:C}" ItemStyle-Width="10%" />
+                    <asp:BoundField DataField="selling_price" HeaderText="Selling Price" DataFormatString="{0:C}" ItemStyle-Width="10%" />
+
+                    <asp:TemplateField HeaderText="Actions" ItemStyle-Width="14%">
                         <ItemTemplate>
-                            <asp:HyperLink ID="lnkEdit" runat="server" 
-                                NavigateUrl='<%# "EditProduct.aspx?id=" + Eval("productid") %>' CssClass="btn btn-sm btn-warning me-2">
-                                Edit
-                            </asp:HyperLink>
+                            <div class="d-flex flex-nowrap">
+                                <asp:HyperLink ID="lnkEdit" runat="server" 
+                                    NavigateUrl='<%# "EditProduct.aspx?id=" + Eval("productid") %>' 
+                                    CssClass="btn btn-sm btn-warning me-2">
+                                    Edit
+                                </asp:HyperLink>
 
-                            <asp:LinkButton ID="lnkDelete" runat="server" 
-                                Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("productid") %>' CssClass="btn btn-sm btn-danger"
-                                OnClientClick="return confirm('Are you sure you want to delete this product?');" />
+                                <asp:LinkButton ID="lnkDelete" runat="server" 
+                                    Text="Delete" CommandName="Delete" CommandArgument='<%# Eval("productid") %>' 
+                                    CssClass="btn btn-sm btn-danger"
+                                    OnClientClick="return confirm('Are you sure you want to delete this product?');" />
+                            </div>
                         </ItemTemplate>
                     </asp:TemplateField>
+
                 </Columns>
             </asp:GridView>
 

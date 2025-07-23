@@ -51,6 +51,7 @@
       <HintPath>packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Win32.Primitives" />
     <Reference Include="Npgsql, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>packages\Npgsql.6.0.0\lib\netstandard2.0\Npgsql.dll</HintPath>
     </Reference>
